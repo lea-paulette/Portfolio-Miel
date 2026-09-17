@@ -1,0 +1,567 @@
+/* ==========================================
+   RESET & STYLES DE BASE
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #2d3748;
+    background-color: #f8fafc;
+    overflow-x: hidden; /* Sécurité anti-débordement horizontal */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Règle globale pour empêcher TOUTE image de casser son conteneur */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ==========================================
+   HEADER / NAVIGATION
+   ========================================== */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #0f172a;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    color: #475569;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.nav-link:hover {
+    color: #2563eb;
+}
+
+.btn-cta {
+    padding: 0.4rem 0.8rem;
+    background-color: #2563eb;
+    color: #ffffff !important;
+    border-radius: 6px;
+}
+
+/* ==========================================
+   SECTION HERO (VERROUILLÉE)
+   ========================================== */
+.hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+    background-color: #F5C527;
+}
+
+.hero-content {
+    flex: 1 1 300px;
+    max-width: 550px; /* Empêche le bloc texte de trop s'étaler */
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    color: #64748b;
+    margin-bottom: 1.25rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary { background-color: #2563eb; color: #ffffff; }
+.btn-secondary { background-color: #e2e8f0; color: #334155; }
+.btn-rainbow {
+    /* Dégradé arc-en-ciel étendu pour permettre le glissement */
+    background: linear-gradient(
+        115deg, 
+        #ff007f, 
+        #7928ca, 
+        #0070f3, 
+        #00dfd8, 
+        #7928ca, 
+        #ff007f
+    );
+    /* On agrandit l'arrière-plan à 300% pour pouvoir l'animer */
+    background-size: 300% 300%;
+    background-position: 0% 50%;
+    
+    color: #ffffff !important;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    
+    /* Ombre portée subtile avec la couleur principale */
+    box-shadow: 0 4px 15px rgba(121, 40, 202, 0.35);
+    
+    /* Transitions fluides pour le survol */
+    transition: background-position 0.6s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Effet au survol (Hover) */
+.btn-rainbow:hover {
+    /* Déplace le dégradé pour créer l'effet d'animation */
+    background-position: 100% 50%;
+    
+    /* Léger soulèvement du bouton */
+    transform: translateY(-2px);
+    
+    /* Accentuation de l'ombre portée au survol */
+    box-shadow: 0 6px 20px rgba(0, 223, 216, 0.45);
+}
+
+/* Effet au clic (Active) */
+.btn-rainbow:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(121, 40, 202, 0.3);
+}
+
+/* Conteneur de l'image Hero avec limites strictes */
+.hero-placeholder {
+    flex: 1 1 300px;
+    max-width: 500px;       /* Largeur maximale sur grand écran */
+    width: 100%;            /* S'adapte sur mobile */
+    height: 320px;          /* Hauteur verrouillée */
+    background-color: #e2e8f0;
+    border:zero;
+    border-radius: 8px;
+    overflow: hidden;       /* Masque strict de ce qui dépasse */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image à l'intérieur du bloc Hero */
+.hero-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* Cadre parfait sans déformation */
+}
+
+.btn-coloring {
+    position: relative;
+    z-index: 1;
+    overflow: hidden; /* Masque la couleur de fond avant le survol */
+    
+    background-color: #ffffff;
+    color: #4a5568;
+    font-weight: 700;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    
+    /* Smooth transitions */
+    transition: color 0.4s ease, border-color 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Pseudo-élément qui simule le coup de pinceau / coloriage en arrière-plan */
+.btn-coloring::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    
+    /* Dégradé arc-en-ciel doux / pastel */
+    background: linear-gradient(
+        120deg, 
+        #ffb7b2, /* Pêche / Rose pastel */
+        #ffdac1, /* Abricot pastel */
+        #e2f0cb, /* Vert menthe pastel */
+        #b5ead7, /* Turquoise pastel */
+        #c7ceea  /* Lavande / Bleu pastel */
+    );
+    
+    /* Positionné complètement en dehors du bouton à gauche par défaut */
+    transform: translateX(-101%);
+    transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- EFFETS AU SURVOL (HOVER) --- */
+.btn-coloring:hover {
+    color: #2d3748; /* Couleur du texte plus contrastée sur fond pastel */
+    border-color: transparent; /* Masque la bordure grise */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(199, 206, 234, 0.5); /* Douce ombre pastel */
+}
+
+/* Déclenchement de l'effet de coloriage (glissement du dégradé) */
+.btn-coloring:hover::before {
+    transform: translateX(0);
+}
+
+/* Effet au clic (Active) */
+.btn-coloring:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(199, 206, 234, 0.3);
+}
+/* ==========================================
+   BOUTONS CRÉATIFS & NEUTRES (ELEGANT/MODERNE)
+   ========================================== */
+
+/* Base commune */
+.btn {
+    padding: 0.8rem 1.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------
+   1. BOUTON PRINCIPAL : ÉCLIPSE / SOMBRE
+   ------------------------------------------ */
+.btn-creative-primary {
+    background-color: #0f172a;
+    color: #ffffff;
+    border: 1px solid #0f172a;
+    letter-spacing: 0px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+}
+
+/* Reflet subtil au survol */
+.btn-creative-primary::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.15), 
+        transparent
+    );
+    transition: left 0.6s ease;
+    z-index: -1;
+}
+
+.btn-creative-primary:hover {
+    background-color: #1e293b;
+    transform: translateY(-2px);
+    letter-spacing: 0.5px; /* Petit effet typographique créatif */
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.22);
+}
+
+.btn-creative-primary:hover::before {
+    left: 100%; /* Le reflet balaye le bouton */
+}
+
+/* ------------------------------------------
+   2. BOUTON SECONDAIRE : CONTOUR INTERACTIF
+   ------------------------------------------ */
+.btn-creative-secondary {
+    background-color: transparent;
+    color: #0f172a;
+    border: 1.5px solid #0f172a;
+}
+
+/* Fond sombre qui monte au survol */
+.btn-creative-secondary::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f172a;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+}
+
+.btn-creative-secondary:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.1);
+}
+
+.btn-creative-secondary:hover::before {
+    transform: translateY(-100%);
+}
+
+/* Effet d'appui (Active) pour les deux */
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* ==========================================
+   SECTION CONTENU / MODULES (VERROUILLÉE)
+   ========================================== */
+.content-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+    color: #0f172a;
+    font-size: 1.5rem;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.flex-card {
+    flex: 1 1 280px;
+    max-width: 380px;       /* Évite qu'une carte isolée ne devienne géante */
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;       /* Verrouille l'image dans sa carte */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image-box {
+    width: 100%;
+    height: 180px;          /* Hauteur fixe pour l'image du module */
+    background-color: #cbd5e1;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
+
+.card-body p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.card-link {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ==========================================
+   SECTION MOSAÏQUE (CADRÉE & FLEXIBLE)
+   ========================================== */
+.gallery-section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.gallery-header {
+    margin-bottom: 1.5rem;
+}
+
+.gallery-header h2 {
+    color: #0f172a;
+    font-size: 1.5rem;
+}
+
+.gallery-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+/* Cadre de base pour chaque case de la mosaïque */
+.gallery-item {
+    flex: 1 1 100%;         /* Mobile par défaut : 100% de la largeur du téléphone */
+    height: 240px;          /* Hauteur fixe sur mobile */
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;       /* Bloque le débordement des photos HD */
+    background-color: #cbd5e1;
+}
+
+/* Sécurité absolue pour toutes les images insérées dans la mosaïque */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* Remplit le cadre sans étirer ni déformer */
+}
+
+/* Masque vide d'attente (placeholders) */
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+    color: #334155;
+    font-weight: 600;
+    border: 2px dashed #64748b;
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    color: #ffffff;
+    opacity: 1; /* Toujours lisible sur mobile */
+    pointer-events: none; /* L'overlay ne bloque pas l'interaction */
+}
+
+.gallery-overlay h4 { font-size: 1rem; }
+.gallery-overlay p { font-size: 0.8rem; color: #cbd5e1; }
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.main-footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.footer-col {
+    flex: 1 1 180px;
+}
+
+.footer-col h4 {
+    color: #f8fafc;
+    margin-bottom: 0.75rem;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.4rem; }
+
+/* ==========================================
+   RESPONSIVE (TABLETTES ET ÉCRANS LARGES)
+   ========================================== */
+
+/* TABLETTES (min 600px) */
+@media (min-width: 600px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 0.5rem); /* Max 2 colonnes bien équilibrées */
+        max-width: calc(50% - 0.5rem);
+        height: 250px;
+    }
+
+    .gallery-item.item-wide {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .gallery-overlay {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+}
+
+/* ORDINATEURS ET ÉCRANS HD (min 900px) */
+@media (min-width: 900px) {
+    .hero-content h1 { font-size: 2.5rem; }
+
+    .gallery-item {
+        flex: 1 1 280px;
+        max-width: 380px;       /* Empêche une seule image de trop s'étirer si elle est seule */
+        height: 260px;
+    }
+
+    .gallery-item.item-wide {
+        flex: 2 1 500px;
+        max-width: 800px;
+    }
+
+    .gallery-item.item-tall {
+        height: 360px;          /* Hauteur contrôlée pour la case verticale */
+    }
+}
