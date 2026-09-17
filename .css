@@ -1,0 +1,341 @@
+/* ==========================================
+   RESET & STYLES DE BASE
+   ========================================== */*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: #2d3748;
+    background-color: #f8fafc;
+    /* Évite les sauts visuels sur mobile lors des défilements */
+    overflow-x: hidden; 
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+/* ==========================================
+   HEADER / NAVIGATION (FLEXBOX RESPONSIVE)
+   ========================================== */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap; /* Permet au menu de repasser sous le logo sur très petits écrans si besoin */
+    gap: 1rem;
+}
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #0f172a;
+}
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.nav-link {
+    color: #475569;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+.nav-link:hover {
+    color: #2563eb;
+}
+
+.btn-cta {
+    padding: 0.4rem 0.8rem;
+    background-color: #2563eb;
+    color: #ffffff !important;
+    border-radius: 6px;
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+.hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.5rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.hero-content {
+    flex: 1 1 300px;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1rem;
+    color: #64748b;
+    margin-bottom: 1.25rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary { background-color: #2563eb; color: #ffffff; }
+.btn-secondary { background-color: #e2e8f0; color: #334155; }
+
+.hero-placeholder {
+    flex: 1 1 300px;
+    height: 220px;
+    background-color: #e2e8f0;
+    border: 2px dashed #94a3b8;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    font-weight: 500;
+    width: 100%;
+}
+
+/* ==========================================
+   SECTION CONTENU (MODULES FLEXBOX)
+   ========================================== */
+.content-section {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+    color: #0f172a;
+    font-size: 1.5rem;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+.flex-card {
+    flex: 1 1 280px;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image-box {
+    height: 160px;
+    background-color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    font-weight: 500;
+}
+
+.card-body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
+
+.card-body p {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.card-link {
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ==========================================
+   MOSAÏQUE D'IMAGES (RESPONSIVE FLEXBOX)
+   ========================================== */
+.gallery-section {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.gallery-header {
+    margin-bottom: 1.5rem;
+}
+
+.gallery-header h2 {
+    color: #0f172a;
+    font-size: 1.5rem;
+}
+
+.gallery-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.gallery-item {
+    flex: 1 1 100%; /* Par défaut sur mobile : 1 seule colonne pleine largeur */
+    height: 220px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #cbd5e1;
+}
+
+.gallery-item.item-wide,
+.gallery-item.item-tall {
+    flex: 1 1 100%; /* S'aligne aussi en 1 colonne sur mobile */
+    height: 220px;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+    color: #334155;
+    font-weight: 600;
+    border: 2px dashed #64748b;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.85) 0%, rgba(15, 23, 42, 0) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    color: #ffffff;
+    /* Sur mobile/tactile : overlay toujours légèrement visible ou au touch */
+    opacity: 1; 
+}
+
+.gallery-overlay h4 {
+    font-size: 1rem;
+}
+
+.gallery-overlay p {
+    font-size: 0.8rem;
+    color: #cbd5e1;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.main-footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.footer-col {
+    flex: 1 1 180px;
+}
+
+.footer-col h4 {
+    color: #f8fafc;
+    margin-bottom: 0.75rem;
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 0.4rem; }
+
+/* ==========================================
+   MEDIA QUERIES (TABLETTES ET ÉCRANS LARGES)
+   ========================================== */
+
+/* TABLETTE (à partir de 600px) */
+@media (min-width: 600px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 0.5rem); /* 2 colonnes sur tablette */
+        height: 240px;
+    }
+
+    .gallery-item.item-wide {
+        flex: 1 1 100%; /* Prend toute la largeur pour casser la monotonie */
+    }
+
+    .gallery-overlay {
+        opacity: 0; /* Masqué par défaut sur grand écran, apparaît au survol */
+        transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+}
+
+/* ORDINATEUR / GRANDES TABLETTES (à partir de 900px) */
+@media (min-width: 900px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-placeholder { height: 300px; }
+
+    .gallery-item {
+        flex: 1 1 280px; /* Grille fluide sur ordinateur */
+        height: 260px;
+    }
+
+    .gallery-item.item-wide {
+        flex: 2 1 450px;
+    }
+
+    .gallery-item.item-tall {
+        height: 360px;
+    }
+}
